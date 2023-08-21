@@ -1,4 +1,3 @@
-
 public class Recursion_Number {
     public static void printDec(int value) {
         if (value==1){
