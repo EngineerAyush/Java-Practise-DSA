@@ -14,7 +14,7 @@ public class Recursion_Number {
             return;
         }
             printInc(value-1);
-            System.out.println(value+" ");
+            System.out.println(value+"Hello ");
         }       
 public static void main(String[] args) {
     int i=10;
