@@ -74,9 +74,24 @@ public static void Insertion(int arr[]){
         arr[prev+1]=curr;
     }
 }
+public static void OptimisedBubleSort(int arr[]){
+     for(int i=0; i<arr.length-1; i++){
+        boolean swap=false;
+        for(int j=0; j<arr.length-1-i; j++){
+        if(arr[j]>arr[j+1]){
+            
+            int temp=arr[j+1];
+            arr[j+1]=arr[j];
+            arr[j]=temp;
+            swap=true;
+        }}
+        if(swap==false){
+            break;
+        }}}
+
     public static void main(String[] args) {
         int arr[]={5,4,1,3,2};
-        Insertion(arr);
+        OptimisedBubleSort(arr);
         PrintArray(arr);
 
     }
