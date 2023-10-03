@@ -1,6 +1,6 @@
 import java.util.LinkedList;
 
-public class LinkedListAdd {
+public class Add_Val {
 public static class Node{
     int data;
     Node next;
@@ -60,7 +60,7 @@ public void Add_Indx(int indx,int data){
     nwNode.next= temp.next;
     temp.next=nwNode;}
     public static void main(String[] args) {
-        LinkedListAdd l1=new LinkedListAdd();
+        Add_Val l1=new Add_Val();
         int a1=5;
         l1.Add_First(a1);
         l1.Add_First(2);
@@ -69,6 +69,9 @@ public void Add_Indx(int indx,int data){
         l1.Add_Indx(3, 6);
         l1.Add_Last(4);
         l1.Print_Data();
+        l1.Print_Data();
+        
+
         System.out.println(l1.size);
         
 
