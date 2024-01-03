@@ -1,3 +1,5 @@
+import org.w3c.dom.Node;
+
 public class Palindrome_List {
         public static class Node{
             int data;
@@ -42,54 +44,102 @@ public class Palindrome_List {
         }
     return slow;
     }
-    public boolean IsPalindrome(){
-        if(head==null||head.next==null){
+
+    public boolean IsPalindrome() {
+        if (head == null || head.next == null) {
             return true;
         }
-        // Midvalue Finding 
-        Node midval=MidValue(head);
-        // Finding the Revese Step 2 
-        Node prev=null;
-        Node curr=midval;
+        // Midvalue Finding
+        Node slow = head;
+        Node fast = head;
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        // Finding the Reverse (Step 2)
+        Node prev = null;
+        Node curr = slow;
         Node next;
-        while(curr!=null){
-            next=curr.next;
-            curr.next=prev;
+        while (curr != null) {
+            next = curr.next;
+            curr.next = prev;
             prev = curr;
             curr = next;
         }
 
-        Node right=prev; //This will point towards the head of right side of linked list
-        Node left= head;
-        while(right!=null){
-            if(left.data!=right.data){
+        Node right = prev; // This will point towards the head of the right side of the linked list
+        Node left = head;
+        while (right != null) {
+            if (left.data != right.data) {
                 return false;
             }
-            left=left.next;
-            right=right.next;
+            left = left.next;
+            right = right.next;
         }
         return true;
-
-
     }
-    
+
     public static void main(String[] args) {
-        Reverse_list l1=new Reverse_list();
-        int a1=5;
+        Palindrome_List l1 = new Palindrome_List();
+        int a1 = 5;
         l1.Add_Val(a1);
         l1.Add_Val(2);
         l1.Add_Val(1);
         l1.Add_Val(3);
-        l1.Add_Val(6);
-        l1.Add_Val(4);
-        // System.out.println(l1.recSearch(3));
-        l1.Print_Data();  
-        l1.reverse();
+        l1.Add_Val(1);
+        l1.Add_Val(2);
         l1.Print_Data();
-        // System.out.println(l1.size);
-        
+        boolean isPalindrome = l1.IsPalindrome();
+        System.out.println("Is Palindrome: " + isPalindrome);
     }
+}
+
     
-    }
+    // public static void main(String[] args) {
+    //     Palindrome_List l1=new Palindrome_List();
+    //     int a1=5;
+    //     l1.Add_Val(a1);
+    //     l1.Add_Val(2);
+    //     l1.Add_Val(1);
+    //     l1.Add_Val(3);
+    //     l1.Add_Val(1);
+    //     l1.Add_Val(2);
+    //     // System.out.println(l1.recSearch(3));
+    //     boolean ispal=l1.IsPalindrome();
+    //     System.out.println(ispal+" ");
+    //     l1.Print_Data();  
+    //     // l1.reverse();
+    //     l1.Print_Data();
+    //     // System.out.println(l1.size);
+        
+    // }
         
     
+
+    //    public boolean IsPalindrome(){
+    //     if(head==null||head.next==null){
+    //         return true;
+    //     }
+    //     // Midvalue Finding 
+    //     Node midval=MidValue(head);
+    //     // Finding the Revese Step 2 
+    //     Node prev=null;
+    //     Node curr=midval;
+    //     Node next;
+    //     while(curr!=null){
+    //         next=curr.next;
+    //         curr.next=prev;
+    //         prev = curr;
+    //         curr = next;
+    //     }
+
+    //     Node right=prev; //This will point towards the head of right side of linked list
+    //     Node left= head;
+    //     while(right!=null){
+    //         if(left.data!=right.data){
+    //             return false;
+    //         }
+    //         left=left.next;
+    //         right=right.next;
+    //     }
+    //     return true;
