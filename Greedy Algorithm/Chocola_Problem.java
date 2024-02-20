@@ -1,5 +1,4 @@
 import java.util.*;
-
 public class Chocola_Problem {
     public static void main(String[] args) {
         int m=6,n=4;
